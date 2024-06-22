@@ -11,9 +11,9 @@ func RollLimit(requirement chubby.Roll) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		roll, OK := c.Get("roll")
 		if !OK {
-			roll = 0
+			roll = int(0)
 		}
-		if chubby.HasRoll(roll.(uint), requirement) {
+		if chubby.HasRoll(uint(roll.(int)), requirement) {
 			// Pass on to the next-in-chain
 			c.Next()
 		} else {
