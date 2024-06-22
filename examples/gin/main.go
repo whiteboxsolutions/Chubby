@@ -28,6 +28,8 @@ func main() {
 
 	unauthorizedGroup.Use(chubby_gin.RollLimit(adminRoll))
 	unauthorizedGroup.GET("/test", AdminCheck)
+
+	router.Run("0.0.0.0:8090")
 }
 
 func AdminCheck(g *gin.Context) {
