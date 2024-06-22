@@ -1,4 +1,4 @@
-package fiber
+package chubbyFiber
 
 import (
 	"github.com/gofiber/fiber/v3"
