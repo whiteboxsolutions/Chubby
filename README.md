@@ -1,4 +1,4 @@
-<img src="https://github.com/whiteboxsolutions/Chubby/blob/assets/assets/img/chubby.png?raw=true" height="150px" align="right"/>
+<img src="https://github.com/whiteboxsolutions/Chubby/blob/assets/assets/img/chubby.png?raw=true" height="150px"/>
 
 # Chubby - the thin, "roll" based auth management system
 Chubby is a lightweight system for managing user "rolls" in your application
