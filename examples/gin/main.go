@@ -22,17 +22,17 @@ func main() {
 
 	adminOnlyGroup.Use(AdminInjector())
 	adminOnlyGroup.Use(chubby_gin.RollLimit(adminRoll))
-	adminOnlyGroup.GET("/test", AdminCheck)
+	adminOnlyGroup.GET("/test", TestPath)
 
-	anyGroup.GET("/test", AdminCheck)
+	anyGroup.GET("/test", TestPath)
 
 	unauthorizedGroup.Use(chubby_gin.RollLimit(adminRoll))
-	unauthorizedGroup.GET("/test", AdminCheck)
+	unauthorizedGroup.GET("/test", TestPath)
 
 	router.Run("0.0.0.0:8090")
 }
 
-func AdminCheck(g *gin.Context) {
+func TestPath(g *gin.Context) {
 	g.JSON(http.StatusOK, "OK")
 }
 

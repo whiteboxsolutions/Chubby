@@ -4,7 +4,7 @@ go 1.22.4
 
 require (
 	github.com/gin-gonic/gin v1.10.0
-	github.com/whiteboxsolutions/Chubby v0.0.0-20240622062836-26587a3b1bd4
+	github.com/whiteboxsolutions/Chubby v0.0.0-20240622063049-6ea2ff7ee2f1
 )
 
 require (
