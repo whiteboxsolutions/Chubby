@@ -90,3 +90,17 @@ func TestHasCombinedRolls(t *testing.T) {
 		t.Errorf("Failed to validate roll - should match")
 	}
 }
+
+func BenchmarkHasCombinedRolls(b *testing.B) {
+	rolls := New()
+	_ = rolls.NewRoll("Admin")
+	managerRoll := rolls.NewRoll("Manager")
+	_ = rolls.NewRoll("Tester")
+	_ = rolls.NewRoll("Anonymous")
+
+	combinedRolls := rolls.Combine("Admin", "Tester")
+
+	for n := 0; n < b.N; n++ {
+		HasRoll(combinedRolls, managerRoll)
+	}
+}
