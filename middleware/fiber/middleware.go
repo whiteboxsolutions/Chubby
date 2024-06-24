@@ -2,6 +2,7 @@ package chubbyFiber
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/gofiber/fiber/v3"
 	chubby "github.com/whiteboxsolutions/Chubby"
@@ -20,8 +21,18 @@ func New(config ...Config) fiber.Handler {
 			return c.Next()
 		}
 
+		var roll uint = 0
+		strRoll := c.Get("roll")
+		if strRoll != "" {
+			intRoll, err := strconv.Atoi(strRoll)
+			if err != nil {
+				return cfg.ErrorHandler(c, fmt.Errorf("invalid roll"))
+			}
+			roll = uint(intRoll)
+		}
+
 		// Extract and verify key
-		allowed := chubby.HasRoll(cfg.Roll.Value, cfg.Requirement)
+		allowed := chubby.HasRoll(roll, cfg.Requirement)
 		if !allowed {
 			return cfg.ErrorHandler(c, fmt.Errorf("unauthorized"))
 		} else {

@@ -51,9 +51,6 @@ func configDefault(config ...Config) Config {
 	if cfg.ErrorHandler == nil {
 		cfg.ErrorHandler = ConfigDefault.ErrorHandler
 	}
-	if cfg.Roll == (chubby.Roll{}) {
-		panic("fiber: chubby requires a roll")
-	}
 	if cfg.Requirement == (chubby.Roll{}) {
 		panic("fiber: chubby requires a roll to compare against")
 	}
