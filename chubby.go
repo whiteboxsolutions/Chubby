@@ -25,8 +25,8 @@ func (r Rolls) NewRoll(name string) Roll {
 	return r[name]
 }
 
-func HasRoll(roll uint, rollToCheck Roll) bool {
-	return roll^rollToCheck.Value <= roll
+func HasRoll(roll uint, requirement Roll) bool {
+	return roll^requirement.Value <= roll
 }
 
 func (r Rolls) Get(name string) (Roll, error) {
