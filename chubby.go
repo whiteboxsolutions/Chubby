@@ -6,13 +6,12 @@ import (
 
 type Roll struct {
 	Value uint
-	Idx   uint
 }
 
 type Rolls map[string]Roll
 
 func (r Roll) String() string {
-	return fmt.Sprintf("Value: %d, Idx: %d", r.Value, r.Idx)
+	return fmt.Sprintf("Value: %d", r.Value)
 }
 
 func New() Rolls {
@@ -20,8 +19,7 @@ func New() Rolls {
 }
 
 func (r Rolls) NewRoll(name string) Roll {
-	idx := uint(len(r) + 1)
-	r[name] = Roll{Idx: idx, Value: setBit(0, idx-1)}
+	r[name] = Roll{Value: setBit(0, uint(len(r)))}
 	return r[name]
 }
 
